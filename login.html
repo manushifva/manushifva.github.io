@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Github Test</title>
+        <script src = "https://kodeapi.bagikode.com/js/builder.js"></script>
+        <link rel = "stylesheet" href = "https://kodeapi.bagikode.com/css/builder.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+  
+    <body>
+        <div id = "container"></div>
+        
+        <script>
+            form = new KodeAPI("login");
+            form.onSuccess(function() {
+                window.location.href = '/userpage.html';
+            });
+            form.init("#container");
+        </script>
+    </body>
+</html>

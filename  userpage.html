@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>User only page</title>
+        <script src = 'https://kodeapi.bagikode.com/js/builder.js'></script>
+        <link rel="stylesheet" href="https://kodeapi.bagikode.com/css/builder.css">
+    </head>
+
+    <body>
+        <div class = "container">
+            <h1>User only page</h1>
+            <p id = "status"></p>
+        </div>
+    </body>
+
+    <script>
+        form = new KodeAPI('login');
+        if (form.isLogged()) {
+            document.querySelector('#status').innerHTML = 'You have logged in. <a onclick = "form.logout()">Logout</a>';
+        } else {
+            document.querySelector('#status').innerHTML = 'You have not logged in. <a href = "/login.html">Login</a>';
+        }
+    </script>
+</html>
