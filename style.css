@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    position: fixed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+.button {
+    font: inherit;
+    width: max-content;
+    border: 1px solid #ececec;
+    padding: 8px 18px;
+    border-radius: 6px;
+    background: #5188d6;
+    color: white;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.button:disabled {
+    background: #a5c0e6;
+    color: white;
+}
+
+.input {
+    font: inherit;
+    width: max-content;
+    border: 1px solid #ececec;
+    padding: 8px 18px;
+    border-radius: 6px;
+    background: none;
+    color: rgb(25, 25, 25);
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.input.price {
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+    width: 175px;
+}
+
+.input-inner {
+    font: inherit;
+    height: 100%;
+    border: 0;
+    color: rgb(25, 25, 25) !important;
+}
+
+input:focus {
+    outline: none;
+}
+
+.main-group {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.display-parent, .creator-parent {
+    flex: 1 0 50%;
+    max-width: 50%;
+    height: 100%;
+    padding: 32px;
+    box-sizing: border-box;
+}
+
+@media only screen and (max-width: 500px) {
+    body {
+        position: relative;
+    }
+    
+    .main-group {
+        flex-direction: column;
+    }
+
+    .display-parent, .creator-parent {
+        flex: 1 0 100%;
+        max-width: 100%;
+        overflow-y: visible !important;
+    }
+}
+
+.display-parent {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.creator-parent {
+    background: rgb(253, 253, 253);
+    color: rgb(40, 40, 40);
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #ececec;
+    overflow-y: auto;
+}
+
+.glass {
+    width: 245px;
+    height: 300px;
+    background: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    margin-bottom: 16px;
+    z-index: 10;
+    position: relative;
+    user-select: none;
+}
+
+.glass-image {
+    left: 0;
+    z-index: 10;
+    width: 245px;
+    height: 100%;
+    position: absolute;
+}
+
+.glass-item {
+    height: 37.5%;
+    width: 100%;
+    background: red;
+}
+
+.main-header {
+    width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+    display: flex;
+    background: rgb(249, 249, 249);
+    border-bottom: 1px solid #ececec;
+}
+
+.header-content {
+    margin-left: auto;
+}
+
+.snap-parent {
+    width: 100%;
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    flex-direction: column;
+}
+
+.snap-container {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+
+.snap-item {
+    width: 62.2px !important;
+    height: 62.2px !important;
+    min-width: 0;
+    border-radius: 50%;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.8px solid #ececec;
+    transition: 0.3s;
+}
+
+.snap-item.active {
+    border-color: #5188d6;
+}
+
+.snap-item:not(:last-child) {
+    margin-right: 8px;
+}
+
+.slick-slider {
+    display: flex !important;
+}
+
+.slick-prev {
+    margin-right: 16px;
+}
+
+.slick-next {
+    margin-left: 16px;
+}

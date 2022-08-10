@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mojision</title>
+        <link rel = "stylesheet" href = "style.css">
+        
+        <script src = "https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+        <link rel = "stylesheet" href="slick.css">
+        
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+    </head>
+
+    <body>
+        <header class = "main-header">
+            <span>Mojision</span>
+
+            <div class = "header-content">
+                <a href = "">Pemesanan</a>
+            </div>
+        </header>
+
+        <main class = "main-group">
+            <div class = "display-parent">
+                <div class = "glass">
+                    <img class = "glass-image" src = "paper-cup-svgrepo-com.svg">
+                    <div class = "glass-item topping"></div>
+                    <div class = "glass-item base"></div>
+                </div>
+                
+                <div style = "display: flex;">
+                    <div class = "input price">
+                        <label style = "margin-right: 8px">Rp. </label>
+                        <input class = "input-inner" value = "17.000" disabled>
+                    </div>
+                    <button class = "button">Pesan</button>
+                </div>
+            </div>
+
+            <div class = "creator-parent">
+                <h1>Bikin mojitomu sendiri!</h1>
+                <p>Ayo kombinasikan berbagai variasi untuk membuat mojitomu! Bingung mau bikin apa? Cek combo rekomendasi kami atau spin!</p>
+
+                <div class = "button-group">
+                    <button class = "button spin" onclick = "spin()">Spin</button>
+                    <button class = "button" onclick = "clean()">Bersihkan</button>
+                </div>
+
+                <p>Pilih base</p>
+                <section class = "snap-container base">
+                    <div class = "snap-item" value = "1">1</div>
+                    <div class = "snap-item" value = "2">2</div>
+                    <div class = "snap-item">3</div>
+                    <div class = "snap-item">4</div>
+                    <div class = "snap-item">5</div>
+                    <div class = "snap-item">6</div>
+                    <div class = "snap-item">7</div>
+                    <div class = "snap-item">8</div>
+                    <div class = "snap-item">9</div>
+                    <div class = "snap-item">10</div>
+                    <div class = "snap-item">11</div>
+                </section>
+
+                <p>Pilih topping</p>
+                <section class = "snap-container topping">
+                    <div class = "snap-item" value = "1">1</div>
+                    <div class = "snap-item" value = "2">2</div>
+                    <div class = "snap-item">3</div>
+                    <div class = "snap-item">4</div>
+                    <div class = "snap-item">5</div>
+                    <div class = "snap-item">6</div>
+                    <div class = "snap-item">7</div>
+                    <div class = "snap-item">8</div>
+                    <div class = "snap-item">9</div>
+                    <div class = "snap-item">10</div>
+                    <div class = "snap-item">11</div>
+                </section>
+            </div>
+        </main>
+
+        <script>
+            var colors = ['red', 'blue', 'yellow', 'pink', 'black', 'grey', 'green', 'purple', 'orange', 'lightblue', 'gold']
+
+            $('.snap-item').on('click', function() {
+                $(this).parent().children().removeClass('active')
+                $(this).addClass('active')
+
+                var c = $(this).parent().attr('class').split(' ').pop()
+                console.log(c)
+                $(`.glass-item.${c}`).css('background', colors[$(this).index()])
+            })
+
+            function spin() {
+                $('.spin').prop('disabled', true) 
+                $('.snap-container').each(function(index, elem) {
+                    elem.count = 0
+
+                    var interval = setInterval(function() {
+                        if (elem.count <= 8) {
+                            var children = $(elem).children()
+                            var click = $(children[Math.floor(Math.random() * (children.length - 1))]).click()
+
+                            elem.count += 1
+                            console.log(elem.count)
+                        } else {
+                            clearInterval(interval)
+                            $('.spin').prop('disabled', false) 
+                        }
+                    }, 200)
+                })
+            }
+
+            function clean() {
+                $('.snap-item').removeClass('active')
+            }
+        </script>
+    </body>
+</html>
